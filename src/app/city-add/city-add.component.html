@@ -1,0 +1,21 @@
+<main role="main">
+    <form [formGroup]="cityAddForm" (ngSubmit)="add()">
+        <h2 class="mt-3 pt-3">Add A New City</h2>
+        <mat-form-field appearance="outline" class="form">
+            <mat-label>City Name</mat-label>
+            <input matInput placeholder="" id="name" formControlName="name" autofocus>
+            <mat-error>Can't be blank!</mat-error>
+        </mat-form-field>
+
+        <br />
+        <mat-form-field appearance="fill" class="textarea">
+            <mat-label>My Notes</mat-label>
+            <textarea matInput id="description" formControlName="description"></textarea>
+            <mat-error>Can't be blank!</mat-error>
+        </mat-form-field>
+        <br />
+
+        <button type="submit" mat-raised-button style="background: #557571; color: #fff;" [disabled] = "!cityAddForm.valid">Basic</button>
+    <h6> {{cityAddForm.value | json}}</h6>
+    </form>
+</main>
