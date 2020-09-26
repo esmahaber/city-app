@@ -19,6 +19,7 @@ export class CityAddComponent implements OnInit {
   city = [];
   cityAddForm: FormGroup;
 
+  //City form control
   createCityForm(){
     this.cityAddForm = this.formBuilder.group({
       name:["", Validators.required],
@@ -37,7 +38,7 @@ export class CityAddComponent implements OnInit {
       this.city = Object.assign({id:5}, this.cityAddForm.value);
       //user id'sine göre ekleme yapılması gereken işlemler gelecek
       Cities.push(this.city);
-      console.log(Cities);
+      this.alertifyService.success("Şehir başarılı bir şekilde eklendi");
       this.router.navigateByUrl('/cityDetail/1');
     }
   }
