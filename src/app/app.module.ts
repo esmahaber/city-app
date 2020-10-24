@@ -4,11 +4,13 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { NgxGalleryModule } from 'ngx-gallery-9';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AlertifyService} from './services/alertify.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlertifyService } from './services/alertify.service';
+import { NgxEditorModule } from 'ngx-editor';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { HttpClientModule } from '@angular/common/http';
-import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -19,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { CityDetailComponent } from './city-detail/city-detail.component';
 import { CityAddComponent } from './city-add/city-add.component';
 import { RegisterComponent } from './register/register.component';
+import { PhotoComponent } from './photo/photo.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { RegisterComponent } from './register/register.component';
     CityDetailComponent,
     CityAddComponent,
     RegisterComponent,
+    PhotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,13 +43,15 @@ import { RegisterComponent } from './register/register.component';
     NgxGalleryModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxEditorModule,
+    FileUploadModule
 
   ],
   providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
     AlertifyService],
-  
+
   bootstrap: [AppComponent],
 
 })
